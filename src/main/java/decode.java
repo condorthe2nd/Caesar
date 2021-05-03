@@ -3,27 +3,27 @@
             public class decode {
                 public static void main(String[] args) {
                     Scanner scanner = new Scanner(System.in);
-                    char result;
-                    char EncryptedChar;
+                    char message;
+                    char encryptedChar;
                     int key = 0;
-                    String encoded = scanner.next();
-                    char[] end = new char[encoded.length()];
+                    String decode = scanner.next();
+                    char[] end = new char[decode.length()];
                     try {
                         for (; key < 100; key++) {
-                            for (int i = 0; i < encoded.length(); i++) {
-                                result = encoded.charAt(i);
-                                if (result - key > 126) {
-                                    EncryptedChar = (char) (32 + (result - key + (127)));
-                                    end[i] = (EncryptedChar);
+                            for (int i = 0; i < decode.length(); i++) {
+                                message = decode.charAt(i);
+                                if (message - key > 126) {
+                                    encryptedChar = (char) (32 + (message - key + (127)));
+                                    end[i] = (encryptedChar);
                                     System.out.println("Decoded with i=" + key + ":" + new String(end));
                                 } else
-                                    EncryptedChar = (char) (result - key);
-                                end[i] = (EncryptedChar);
+                                    encryptedChar = (char) (message - key);
+                                end[i] = (encryptedChar);
                                 System.out.println("Decoded with i=" + key + ":" + new String(end));
                             }
                         }
                     } catch (Exception e) {
-                        System.out.println("Hello");
+                        System.out.println("Error");
                     }
                 }
             }
